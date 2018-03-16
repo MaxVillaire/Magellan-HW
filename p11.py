@@ -130,13 +130,37 @@ print(A)
 print('max = {0}\t\tmin = {1}'.format(np.amax(A),np.amin(A)))
 print('mean = {0}\tmedian = {1}'.format(np.mean(A),np.median(A)))
 print('std_dev = {0}\tvar = {1}'.format(np.std(A),np.var(A)))
+print('\n\n')
+
+#17)
+print('Problem 17) Find max,min,mean,median,std_dev, and var of cols of A')
+print(A)
+print('max = {0}\t\tmin = {1}'.format(np.amax(A,axis=0),np.amin(A,axis=0)))
+print('mean = {0}\tmedian = {1}'.format(np.mean(A,axis=0),np.median(A,axis=0)))
+print('std_dev = {0}\tvar = {1}'.format(np.std(A,axis=0),np.var(A,axis=0)))
+print('\n\n')
 
 
+#18)
+print('Problem 18) Find max,min,mean,median,std_dev, and var of rows of A')
+# my instincts tell me to do the exact same as 17 but us A.T,
+# let me know if that is slow for some reason
+print(A)
+print('max = {0}\t\tmin = {1}'.format(np.amax(A,axis=1),np.amin(A,axis=1)))
+print('mean = {0}\tmedian = {1}'.format(np.mean(A,axis=1),np.median(A,axis=1)))
+print('std_dev = {0}\tvar = {1}'.format(np.std(A,axis=1),np.var(A,axis=1)))
+print('\n\n')
 
+#19)
+print('Problem 19) Find the position of the max value of A')
+# modulus operator to be used if you need an ordered pair
+print(A.argmax())
+print('\n\n')
 
-
-
-
+#20)
+print('Problem 20) Find the 5th and 95th percentile scores in a')
+print(np.percentile(a,5))
+print(np.percentile(a,95))
 
 
 
