@@ -175,6 +175,7 @@ print('\n\n')
 
 #22)
 print('Problem 22) create a function to normalize an array between 0 & 1')
+# is there any problems with this solution?
 print(a)
 print((a-min(a))/(max(a)-min(a)))
 print('\n\n')
@@ -183,7 +184,7 @@ print('\n\n')
 print('Problem 23) create a large array A, add 200 random nans, save as B')
 A = np.random.rand(5000)
 print(A)
-mask = np.random.randint(5000, size=200)
+mask = np.random.choice(5000,200,replace=False)
 B = A
 B[mask] = np.nan
 #print(np.array_equal(A,B))
@@ -194,5 +195,61 @@ print('\n\n')
 #24)
 print('Problem 24) find the positions of nan in B')
 print(np.argwhere(np.isnan(B)))
+print('\n\n')
+
+#25)
+print('Problem 25) Select the rows in B that have a nan in them')
+
+B = np.reshape(B,(500,10))
+# Print all rows that have a nan
+print(B[np.isnan(B).any(axis=1)])
+# Print all rows that do not have a nan
+print(B[~np.isnan(B).any(axis=1)])
+print('\n\n')
+
+#26)
+print('Problem 26) replace all nan in B with a 0')
+# Change all nan to 0, pos inf to max int and neg inf to min int
+print(np.nan_to_num(B))
+print('\n\n')
+
+#27)
+print('Problem 27) C = (100x100), filled with random between [0,1)')
+print('Find rows where 3rd column > .5 and 7th column >= .75')
+C = np.random.rand(100,100)
+I = C[C[:,2] > 0.5]
+I = I[I[:,6] >= 0.75]
+print(I)
+print('\n\n')
+
+#28)
+print('Problem 28) Correlate two columns of C')
+# IMPORTANT NOTE:
+# I do not understand what this means or if it's what you wanted.
+print(np.correlate(C[:,0],C[:,1]))
+
+#29)
+print('Problem 29) Find the unique values in C')
+# print(set(C.flat))
+print(np.unique(C))
+print('\n\n')
+
+#30)
+print('Problem 30) Find the 2nd and 5th largest values in C')
+# I saw multiple ways to do this, best practice depends on use case I think
+flat = C.flatten()
+# couldn't get away from needing a new variable, sort returns NONE
+flat.sort()
+print(flat[-2])
+# Using the other method to find 5th largest
+# this is clever, but I'm not the one who thought to use it.
+# Runs in O(n) at worst tho, while sorting is at least O(log(n))i
+# since np defaults to quicksort it can be as bad as O(n^2), very bad
+# leave as quicksort for random data tho, will be faster
+
+# -5 in the argument is the index of the partition value
+# if the array were sorted. -1 would be the largest in the array,
+# 0 would be the smallest, etc.
+print(np.partition(C.flatten(), -5)[-5])
 
 
