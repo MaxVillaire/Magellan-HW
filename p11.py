@@ -161,6 +161,38 @@ print('\n\n')
 print('Problem 20) Find the 5th and 95th percentile scores in a')
 print(np.percentile(a,5))
 print(np.percentile(a,95))
+print('\n\n')
 
+#21)
+print('Problem 21) create a function max_of_2')
+def max_helper(x,y):
+    if x>y: return x
+    else: return y
+max_of_2 = np.vectorize(max_helper)
+print('testing function with arrays [5,5,5] and [1,5,8]')
+print(max_of_2([5,5,5],[1,5,8]))
+print('\n\n')
+
+#22)
+print('Problem 22) create a function to normalize an array between 0 & 1')
+print(a)
+print((a-min(a))/(max(a)-min(a)))
+print('\n\n')
+
+#23)
+print('Problem 23) create a large array A, add 200 random nans, save as B')
+A = np.random.rand(5000)
+print(A)
+mask = np.random.randint(5000, size=200)
+B = A
+B[mask] = np.nan
+#print(np.array_equal(A,B))
+#False
+print(B)
+print('\n\n')
+
+#24)
+print('Problem 24) find the positions of nan in B')
+print(np.argwhere(np.isnan(B)))
 
 
