@@ -243,7 +243,7 @@ flat.sort()
 print(flat[-2])
 # Using the other method to find 5th largest
 # this is clever, but I'm not the one who thought to use it.
-# Runs in O(n) at worst tho, while sorting is at least O(log(n))i
+# Runs in O(n) at worst tho, while sorting is at least O(nlog(n))i
 # since np defaults to quicksort it can be as bad as O(n^2), very bad
 # leave as quicksort for random data tho, will be faster
 
